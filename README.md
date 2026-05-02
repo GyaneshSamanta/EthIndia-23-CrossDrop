@@ -1,146 +1,116 @@
 <div align="center">
-  <img src="repository-assets/cover.jpg" width="100%" alt="ETHIndia 2023 CrossDrop Banner" style="border-radius: 10px; margin-bottom: 20px;">
+  <img src="repository-assets/cover.jpg" width="100%" alt="CrossDrop Banner" />
+  <br/>
+  <img src="repository-assets/crossdrop.png" width="280" alt="CrossDrop Logo" />
+</div>
 
-  <img src="repository-assets/crossdrop.png" width="300" alt="CrossDrop Logo">
-  
-  <p align="center">
-    <strong>Targeted Marketing and Precision Airdrops for the Next Generation of On-Chain Audiences</strong>
-  </p>
+<h1 align="center">CrossDrop</h1>
 
-  <div>
-    <a href="https://arbitrum.io">
-      <img src="https://img.shields.io/badge/Winner_of_Arbitrum_Track-2D3748?style=for-the-badge&logo=arbitrum&logoColor=96DBFD" alt="Arbitrum Winner">
-    </a>
-    <img src="https://img.shields.io/badge/Built_at-ETHIndia_2023-blue?style=for-the-badge&logo=ethereum&logoColor=white" alt="ETHIndia 2023">
-  </div>
+<p align="center"><b>Targeted marketing and precision airdrops for the next generation of on-chain audiences.</b></p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Winner-Arbitrum%20Track-2D3748?style=for-the-badge&logo=arbitrum&logoColor=96DBFD" />
+  <img src="https://img.shields.io/badge/Built%20at-ETHIndia%202023-3c63ff?style=for-the-badge&logo=ethereum&logoColor=white" />
+  <img src="https://img.shields.io/badge/Stack-React%20%2B%20Node-38b2ac?style=for-the-badge&logo=react" />
+  <img src="https://img.shields.io/badge/Data-Airstack%20%7C%20SimpleHash-8b5cf6?style=for-the-badge" />
+</p>
+
+---
+
+## About
+
+- **What** — CrossDrop turns broadcast airdrops into surgical campaigns. Protocols define audiences with cross-chain on-chain filters and ship rewards only to wallets that match.
+- **Who** — Team `teamgpt`: Gyanesh Samanta, Priyadarsh S S, and Siddhardha.
+- **When** — Built across the ETHIndia 2023 hackathon weekend (Dec 8–10, 2023).
+- **Where** — [ETHIndia 2023](https://ethindia.co/), Bangalore. **Winner of the Arbitrum track.**
+- **Why** — Most airdrops are won by Sybil farms, not real users. We wanted protocols to find their true champions, not their loudest farmers.
+
+## The Story
+
+In 2023, airdrops were Web3's favorite go-to-market tool — and also its most wasteful. Bots automated qualification, allocations got diluted, and protocols had no way to tell a power user from a Sybil cluster. Marketing budgets evaporated into wallets that never came back.
+
+CrossDrop reframes the problem. Instead of "drop tokens broadly and pray," it gives PMs a **targeting console**: filter by protocol interactions, NFT holdings, transaction history, and social graph signals — across multiple chains in a single query. Under the hood we lean on **Airstack's GraphQL API** for social and transactional graphs, **SimpleHash** for multi-chain NFT data, and **Crossmint** for verification rails. Distribution itself runs on **Arbitrum** for fast, cheap settlement.
+
+By the end of the weekend we had a working dashboard, a Node + MongoDB backend wired to three data providers, and an end-to-end demo that took the **Arbitrum track win**. **43 commits** across **3 contributors** in **3 days**.
+
+## Gallery
+
+<div align="center">
+  <img src="repository-assets/1.png" width="45%" alt="Preview 1" />
+  <img src="repository-assets/2.png" width="45%" alt="Preview 2" />
+  <br/>
+  <img src="repository-assets/3.png" width="30%" alt="Preview 3" />
+  <img src="repository-assets/4.png" width="30%" alt="Preview 4" />
+  <img src="repository-assets/5.png" width="30%" alt="Preview 5" />
 </div>
 
 ---
 
-## 🏆 Achievement
+## Tech Stack
 
-### **Winner of <a href="https://arbitrum.io"><img src="https://img.shields.io/badge/Arbitrum-96DBFD?style=flat-square&logo=arbitrum&logoColor=white" height="24"></a> Track at ETHIndia 2023**
+- **Chain:** Arbitrum (L2 settlement)
+- **Data:** Airstack GraphQL, SimpleHash, Moralis
+- **Verification:** Crossmint modules
+- **Frontend:** React 18, Vite, Chakra UI, Framer Motion, wagmi + viem, RainbowKit
+- **Backend:** Node.js, Express, MongoDB / Mongoose, dotenv
+- **Tooling:** nodemon, ESLint
 
-CrossDrop was recognized as a top-tier solution for the Arbitrum ecosystem, demonstrating the power of targeted distribution in the L2 landscape.
+## Repo Structure
 
----
+```
+ETHIndia23-teamgpt/
+├── client/                 # React + Vite frontend (Chakra + RainbowKit)
+├── controllers/            # Express route handlers
+├── routes/                 # API route definitions
+├── models/                 # Mongoose schemas
+├── services/               # Business logic
+├── modules/                # Reusable feature modules
+├── Crossmint Modules/      # Crossmint integration
+├── Web3Gates/              # On-chain gating logic
+├── airstack graphql/       # Airstack query bundles
+├── web3apis/               # Chain RPC helpers
+├── constants/              # Shared constants
+├── helper.js               # Shared helpers
+├── index.js                # Express entry point
+└── package.json
+```
 
-## 📈 PM Insight & Vision
+## Getting Started
 
-### The Problem: The "Airdrop Noise"
+**Prerequisites:** Node.js 16+, MongoDB connection string, API keys for Airstack and SimpleHash.
 
-In the current Web3 landscape, **Airdrops** are the primary tool for user acquisition. However, they face a critical efficiency gap:
+```bash
+git clone https://github.com/GyaneshSamanta/ETHIndia23-teamgpt.git
+cd ETHIndia23-teamgpt
 
-- **Sybil Vulnerability:** Automated bots dilute rewards intended for real users.
-- **Shotgun Marketing:** Distribution is often broad and unoptimized, leading to low retention.
-- **Lack of Profiling:** Companies cannot easily identify power users or loyal community members across chains.
+# Backend
+npm install
+# create .env with MONGO_URI, AIRSTACK_KEY, SIMPLEHASH_KEY, CROSSMINT_KEY
+npm start                  # nodemon index.js
 
-### The Solution: CrossDrop
+# Frontend
+cd client
+npm install
+npm run dev                # vite dev server
+```
 
-**CrossDrop** transforms airdrops from a "quantity-play" into a "quality-play." By leveraging deep on-chain analytics, we enable businesses to execute **Targeted Marketing** with surgical precision.
+## Contributing
 
-> _"We help protocols find their true champions, not just their loudest farmers."_
+PRs welcome. Open an issue first for any non-trivial change so we can align on direction.
 
----
+## License
 
-## 💡 Knowledge Primer
+ISC. See `package.json`.
 
-- **What is an Airdrop?** A strategic tool for Web3 projects to distribute tokens to a community based on specific criteria.
-- **The CrossDrop Edge:** We don't just drop tokens; we drop them to the _right_ people based on transaction history, social graph (Airstack), and NFT ownership (SimpleHash).
+## Team / Credits
 
----
+Built at ETHIndia 2023 by:
 
-## 🚀 Key Features
-
-- 🎯 **On-Chain Targeting:** Filter audiences based on specific protocol interactions.
-- 🔗 **Cross-Chain Insights:** Aggregated data from multiple networks to build a complete user persona.
-- 🛡️ **Sybil Resistance:** Intelligent filtering to prioritize organic wallets.
-- 📊 **Marketing Dashboard:** A core development console for PMs to track campaign conversion and impact.
-
----
-
-## 🛠️ Technical Stack
-
-- **L1/L2 Infrastructure:** Built on **Arbitrum** for high-speed, low-cost execution.
-- **Data Intelligence:**
-  - **Airstack GraphQL API:** For complex social and transactional graph queries.
-  - **SimpleHash API:** For multi-chain NFT data aggregation.
-- **Verification & Access:** **Crossmint** modules for seamless NFT integration.
-- **Frontend:** React (Vite) + Chakra UI + Framer Motion.
-- **Backend:** Node.js (Express) + MongoDB (Mongoose).
-
----
-
-## 📺 Product Preview
-
-<div align="center">
-  <p><i>The CrossDrop User Journey: From Targeting to Distribution</i></p>
-  <img src="repository-assets/1.png" width="45%" style="border-radius: 8px; margin: 5px;" alt="Preview 1">
-  <img src="repository-assets/2.png" width="45%" style="border-radius: 8px; margin: 5px;" alt="Preview 2">
-  <br>
-  <img src="repository-assets/3.png" width="30%" style="border-radius: 8px; margin: 5px;" alt="Preview 3">
-  <img src="repository-assets/4.png" width="30%" style="border-radius: 8px; margin: 5px;" alt="Preview 4">
-  <img src="repository-assets/5.png" width="30%" style="border-radius: 8px; margin: 5px;" alt="Preview 5">
-</div>
-
----
-
-## ⚙️ Getting Started
-
-### Prerequisites
-
-- Node.js (v16+)
-- MongoDB connection string
-- API Keys for Airstack & SimpleHash
-
-### Installation
-
-1. **Clone the Repo**
-
-   ```bash
-   git clone https://github.com/siddhardha123/ETHIndia23-teamgpt.git
-   cd ETHIndia23-teamgpt
-   ```
-
-2. **Backend Setup**
-
-   ```bash
-   npm install
-   # Create a .env file with your variables
-   npm start
-   ```
-
-3. **Frontend Setup**
-   ```bash
-   cd client
-   npm install
-   npm run dev
-   ```
-
----
-
-## 🤝 Contributors
-
-We are proud of the collaborative effort that went into CrossDrop.
-
-<a href="https://github.com/siddhardha123/ETHIndia23-teamgpt/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=siddhardha123/ETHIndia23-teamgpt" alt="Contributors" style="border-radius: 10px;">
-</a>
-
----
-
-## 🚨 Forking & Attribution
-
-We value the open-source spirit! You are free to fork and use this project for personal learning.
-
-- **Attribution Required:** Please attribute the original authors when using this code.
-- **Commercial Use:** If you intend to use this for business or commercial scale, please reach out to us first.
-- **Ethical Code:** Plagiarism is bad for the ecosystem. We spent significant effort on the design and logic—please respect that effort!
-
-Refer to this [guide on copying code](https://www.quora.com/Is-it-bad-to-copy-other-peoples-code) if you're unsure.
-
----
+- [Gyanesh Samanta](https://github.com/GyaneshSamanta)
+- [Priyadarsh S S](https://github.com/Priyadarshsspatnaik)
+- [Siddhardha](https://github.com/siddhardha123)
 
 <div align="center">
-  Built with ❤️ at <b>ETHIndia 2023</b>
+  <br/>
+  <i>Winner of the Arbitrum track at ETHIndia 2023.</i>
 </div>
